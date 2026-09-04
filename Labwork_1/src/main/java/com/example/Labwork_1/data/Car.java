@@ -1,13 +1,23 @@
 package com.example.Labwork_1.data;
 
+import jakarta.persistence.*;
+
 import java.lang.reflect.GenericDeclaration;
 
+@Entity
 public class Car {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String plateNumber;
     private String brand;
     private int price;
     private boolean rent;
+    @Embedded
     private Dates dates;
+
+    public Car(){}
 
     public Car(String plateNumber, String brand, int price, boolean rent){
         this.plateNumber = plateNumber;
